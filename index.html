@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,40 +9,68 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body class="bg-slate-200" >
 
-<div class="h-screen flex items-center justify-center">
-    <div
-        x-data = "{
-            open: false,
-            toggle() {
-                if(this.open){
-                    return this.close()
-                }
-                this.open = true
-            },
-            close(){
-                this.open = false
-            }
-        }"
-        class="relative"
-    >
-    <button x-on:click="toggle()" class="bg-white px-5 py-2.5 rounded-md shadow" >
-        Dropdown
-    </button>
-    <div
-        x-show="open"
-        style="display: none;"
-        class="absolute left-0 mt-2 w-40 bg-white rounded shadow-md overflow-hidden"
-        x-transition.origin.top.left
-    >
-        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500" href="">Option1</a>
-        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200" href="">Option2</a>
-        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200" href="">Option3</a>
-        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200" href="">Option4</a>
+<body class="bg-slate-200 flex flex-col md:flex-row">
+
+    <!-- Modal -->
+    <div class="h-screen w-full md:w-1/2 flex items-center justify-center">
+        <div x-data="{ open:false }" x-init="()=>{ setTimeout(() => { open = true }, 3000); }"
+            class="bg-white rounded-md bg-opacity-75 shadow-md">
+            <div x-show.transition.duration.500ms="open"
+                class="relative w-80 h-80 border border-gray-200 flex items-center justify-center p-12">
+                <img src="https://memegenerator.net/img/instances/25615296.jpg" alt="" srcset="">
+                <span @click="open = false" class="absolute right-4 top-4 cursor-pointer">
+                    <svg version="1.1" id="Capa_1" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001"
+                        style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+                            L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+                            c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+                            l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+                            L284.286,256.002z" />
+                            </g>
+                        </g>
+                    </svg>
+                </span>
+            </div>
+            <button class="bg-white px-5 py-2.5 rounded-md shadow" x-show="!open" @click="open = true">
+                Open modal
+            </button>
+        </div>
     </div>
-</div>
-</div>
 
+    <!-- Dropdown -->
+    <div class="h-screen w-full md:w-1/2 flex items-center justify-center">
+        <div x-data="{
+                open: false,
+                toggle() {
+                    if(this.open){
+                        return this.close()
+                    }
+                    this.open = true
+                },
+                close(){
+                    this.open = false
+                }
+            }" class="relative">
+            <button x-on:click="toggle()" class="bg-white px-5 py-2.5 rounded-md shadow">
+                Dropdown
+            </button>
+            <div x-show="open" style="display: none;"
+                class="absolute left-0 mt-2 w-40 bg-white rounded shadow-md overflow-hidden"
+                x-transition.origin.top.left>
+                <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"
+                    href="">Option1</a>
+                <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200"
+                    href="">Option2</a>
+                <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200"
+                    href="">Option3</a>
+                <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200"
+                    href="">Option4</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
