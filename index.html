@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-slate-200" >
+
+<div class="h-screen flex items-center justify-center">
+    <div
+        x-data = "{
+            open: false,
+            toggle() {
+                if(this.open){
+                    return this.close()
+                }
+                this.open = true
+            },
+            close(){
+                this.open = false
+            }
+        }"
+        class="relative"
+    >
+    <button x-on:click="toggle()" class="bg-white px-5 py-2.5 rounded-md shadow" >
+        Dropdown
+    </button>
+    <div
+        x-show="open"
+        style="display: none;"
+        class="absolute left-0 mt-2 w-40 bg-white rounded shadow-md overflow-hidden"
+        x-transition.origin.top.left
+    >
+        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500" href="">Option1</a>
+        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200" href="">Option2</a>
+        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200" href="">Option3</a>
+        <a class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500 border-t border-gray-200" href="">Option4</a>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
