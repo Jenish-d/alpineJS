@@ -13,7 +13,7 @@
 <body>
     <div class="flex justify-end">
         <div x-data="{open:false, toggle(){this.open ? this.open=false : this.open=true}}" class="relative">
-            <a class="block" x-on:click="toggle()">
+            <a class="block cursor-pointer" x-on:click="toggle()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-2" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -77,7 +77,7 @@
         </div>
 
         <div x-data="{open:false, toggle(){this.open ? this.open=false : this.open=true}}" class="relative">
-            <a x-on:click="toggle()">
+            <a class="cursor-pointer" x-on:click="toggle()">
                 <!-- notification -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-2" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -107,7 +107,7 @@
         </div>
 
         <div x-data="{open:false, toggle(){this.open ? this.open=false : this.open=true}}" class="relative">
-            <a x-on:click="toggle()">
+            <a class="cursor-pointer" x-on:click="toggle()">
                 <!-- question -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-2" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
